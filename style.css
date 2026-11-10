@@ -1,0 +1,45 @@
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: dark-grey
+}
+li {
+  float: left;
+
+}
+
+li a {
+  display: block;
+  color: orange;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111111;
+}
+body {
+	background-color: darkblue;
+	color: yellow;	
+}
+p {
+  text-align: left;
+	color: yellow;
+}
+h1 {
+	text-align: center;
+	color: white;
+}
+h4{
+	color: yellow;
+	text-align: left;
+	font-family: Arial;
+	font-size: 23px;
+}
+a {
+	color: orange;
+}

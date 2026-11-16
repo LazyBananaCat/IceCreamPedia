@@ -9,7 +9,9 @@ li {
   float: left;
 
 }
-
+head{
+	background-color: teal;
+}
 li a {
   display: block;
   color: black;

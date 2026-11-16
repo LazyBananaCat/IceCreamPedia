@@ -3,7 +3,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: canaryblue
+  background-color: teal;
 }
 li {
   float: left;

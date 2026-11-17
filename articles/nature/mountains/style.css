@@ -1,0 +1,282 @@
+/* Спільні стилі IceCreamPedia: головна сторінка, розділи та статті. */
+
+/* 1. Кольори сайту. Значення змінюються одразу для всіх сторінок. */
+:root {
+  --color-background: #46adfc;
+  --color-text: #ffffff;
+  --color-heading: #ffffff;
+  --color-link: #ffa500;
+  --color-menu: #161646;
+  --color-menu-hover: #111111;
+  --color-border: blue;
+  --color-panel: #0563fc;
+}
+
+/* 2. Загальні налаштування розмірів і сторінки. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--color-background);
+}
+
+body {
+  max-width: 1120px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  overflow-wrap: break-word;
+}
+
+/* Спільна шапка та область вмісту на кожній сторінці. */
+.site-header {
+  margin-bottom: 24px;
+}
+
+.site-brand {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: var(--color-heading);
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.site-content {
+  display: flow-root;
+  min-width: 0;
+  padding: 24px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-panel);
+}
+
+.site-content > h1:first-child {
+  margin-top: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 1;
+  padding: 8px 12px;
+  background-color: var(--color-menu);
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+/* 3. Заголовки, абзаци та звичайні списки. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 1.25em 0 0.5em;
+  color: var(--color-heading);
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1.125rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+p {
+  margin: 0 0 1em;
+  text-align: left;
+}
+
+ul,
+ol {
+  margin: 1em 0;
+  padding-left: 1.75rem;
+}
+
+li {
+  margin-bottom: 0.35em;
+}
+
+/* 4. Посилання: звичайний стан, наведення та вибір клавішею Tab. */
+a {
+  color: var(--color-link);
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--color-text);
+}
+
+a:focus-visible {
+  outline: 2px dashed var(--color-heading);
+  outline-offset: 3px;
+}
+
+/* 5. Меню. Клас відокремлює навігацію від списків у статтях. */
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  border: 2px solid var(--color-border);
+  background-color: var(--color-menu);
+  list-style: none;
+}
+
+.site-nav li {
+  max-width: 100%;
+  margin: 0;
+}
+
+.site-nav a {
+  display: block;
+  min-height: 44px;
+  padding: 12px 16px;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  background-color: var(--color-menu-hover);
+  color: var(--color-text);
+}
+
+.site-nav a[aria-current="page"] {
+  background-color: var(--color-link);
+  color: var(--color-menu);
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* 6. Зображення та відео не виходять за межі сторінки. */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+.article-image {
+  float: right;
+  width: 640px;
+  margin: 0 0 20px 24px;
+}
+
+.full-width-image {
+  display: block;
+  width: 100%;
+}
+
+@media (max-width: 800px) {
+  .article-image {
+    display: block;
+    float: none;
+    margin: 0 auto 20px;
+  }
+}
+
+/* 7. На вузькому екрані меню стає вертикальним. */
+@media (max-width: 600px) {
+  body {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  .site-content {
+    padding: 16px;
+  }
+
+  .site-nav li {
+    flex-basis: 100%;
+  }
+
+  .site-nav li + li {
+    border-top: 1px solid var(--color-border);
+  }
+
+  img[align="right"],
+  img[align="left"] {
+    display: block;
+    float: none;
+    margin: 1em auto;
+  }
+}
+
+/* 8. Друк статей без синього фону та навігаційного меню. */
+@media print {
+  html,
+  body,
+  .site-content {
+    background-color: #ffffff;
+    color: #000000;
+  }
+
+  body,
+  .site-content {
+    max-width: none;
+    min-height: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .site-header,
+  .skip-link,
+  .back-link {
+    display: none;
+  }
+
+  .article-image {
+    float: none;
+    margin: 0 0 16px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  a {
+    color: #000000;
+  }
+}
